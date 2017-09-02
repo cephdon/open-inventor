@@ -140,6 +140,9 @@ ALLSTYLES+=DARWIN
 ifeq ($(usingIrix), 1)
 WOFF=-woff 1685,515,608,658,799,803,852,1048,1233,1499$(LWOFF)
 endif
+ifeq ($(usingLinux), 1)
+WOFF=-Wno-error$(LWOFF)
+endif
 
 #
 # Default C version, optimizer, common global options, and make-depend options.
@@ -165,7 +168,7 @@ CSTYLE_R32   = -mips3 -r32
 CSTYLE_64_M3 = -mips3 -64
 CSTYLE_64_M4 = -mips4 -64
 CSTYLE_64_ABI = -mips3 -64 -D_MIPSABI_SOURCE=3
-CSTYLE_IA32  =
+CSTYLE_IA32  = -std=c++03
 CSTYLE_DARWIN= #-arch x86_64 -arch i686
 
 # 'generic' styles - per ABI. releasedefs sets what it is.
